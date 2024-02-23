@@ -9,13 +9,16 @@ The purpose of the CheckinFlow is to provide a streamlined and efficient check-i
 
 ## Setting up
 
+
+### Install dependencies
 Before jumping to the code please first install the dependencies by running:
 
 ```bash
  npm install
 ```
 
-After please also create a `.env` file, you can copy the `.env.expample` file
+### MAKE SURE YOU HAVE .ENV FILE
+After please also create a `.env` file, you can copy the `.env.workflow` file
 
 ## Unit Testing
 
