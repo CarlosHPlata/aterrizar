@@ -5,6 +5,8 @@ export interface RequestData {
   country: CountryCode
   sessionId: UUID
   userId: string
+  email: string
   flightNumbers: string[]
+  passengers: number
   fields?: Partial<Record<RequiredField, unknown>>
 }

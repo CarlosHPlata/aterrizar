@@ -33,10 +33,12 @@ const MOCK_SESSION: Session = {
           country: 'FR'
         }
       }
-    ]
+    ],
+    passengers: 1
   },
   userInformation: {
-    passportNo: 'G123'
+    passportNo: 'G123',
+    email: 'user@checkin.com'
   }
 }
 

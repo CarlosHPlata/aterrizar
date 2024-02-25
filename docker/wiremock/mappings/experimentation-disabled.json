@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/experimentation/api/v1",
+    "queryParameters": {
+      "mail": {
+        "matches": "([A-Z,a-z]+)@([A-Z,a-z]+).com"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "experiments": []
+    }
+  }
+}

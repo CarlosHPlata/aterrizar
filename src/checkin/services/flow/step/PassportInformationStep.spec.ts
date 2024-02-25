@@ -9,7 +9,7 @@ describe('[ Step / PassportInformationStep ]', () => {
     it('should execute when passport is not set in session user information', () => {
       const context: Context = new MockContext()
       context.withSessionBuilder(sessionBuilder => sessionBuilder
-        .userInformation({ passportNo: undefined })
+        .userInformation({ ...context.getSession().userInformation, passportNo: undefined })
       )
 
       expect(step.when(context)).toBeTruthy()
@@ -18,7 +18,7 @@ describe('[ Step / PassportInformationStep ]', () => {
     it('should not execute when passport is not set in session user information', () => {
       const context: Context = new MockContext()
       context.withSessionBuilder(sessionBuilder => sessionBuilder
-        .userInformation({ passportNo: 'G123' })
+        .userInformation({ ...context.getSession().userInformation, passportNo: 'G123' })
       )
 
       expect(step.when(context)).toBeFalsy()
@@ -44,7 +44,7 @@ describe('[ Step / PassportInformationStep ]', () => {
       context.withRequestBuilder(requestBuilder => requestBuilder
         .fields({ passport_number: passport })
       ).withSessionBuilder(sesionBuilder => sesionBuilder
-        .userInformation({ passportNo: undefined })
+        .userInformation({ ...context.getSession().userInformation, passportNo: undefined })
       )
 
       const response = await step.onExecute(context)

@@ -63,7 +63,8 @@ function wireContextMockWithAgreementInSession(agreementSigned: boolean): Contex
     .data({
       agreementSigned,
       country: context.getSession().data.country,
-      flights: context.getSession().data.flights
+      flights: context.getSession().data.flights,
+      passengers: context.getSession().data.passengers
     })
   )
 

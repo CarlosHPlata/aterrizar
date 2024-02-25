@@ -25,11 +25,13 @@ const mapSessionData = (repository: IFlightRepository) => async (requestData: Re
   return Builder<SessionData>()
     .country(requestData.country)
     .flights(flights)
+    .passengers(requestData.passengers <= 0 ? 1 : requestData.passengers)
     .build()
 }
 
 const mapUserInformation = async (requestData: RequestData): Promise<UserInformation> => {
   return Builder<UserInformation>()
+    .email(requestData.email)
     .passportNo((requestData.fields?.passport_number as string))
     .build()
 }

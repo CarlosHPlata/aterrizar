@@ -6,6 +6,8 @@ const MOCKED_REQUEST_DATA: RequestData = {
   sessionId: '123-123-123-123-123',
   userId: 'user123',
   country: 'US',
+  email: 'user@checkin.com',
+  passengers: 1,
   flightNumbers: ['123', '123'],
   fields: {}
 }
