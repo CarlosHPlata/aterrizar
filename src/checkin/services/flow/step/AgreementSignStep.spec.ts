@@ -64,7 +64,8 @@ function wireContextMockWithAgreementInSession(agreementSigned: boolean): Contex
       agreementSigned,
       country: context.getSession().data.country,
       flights: context.getSession().data.flights,
-      passengers: context.getSession().data.passengers
+      passengers: context.getSession().data.passengers,
+      seats: context.getSession().data.seats
     })
   )
 

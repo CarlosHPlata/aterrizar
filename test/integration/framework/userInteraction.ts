@@ -33,6 +33,18 @@ const fillPassport = (app: Application, requiredData: RequiredData, data?: Parti
   { fields: { passport_number: 'G123' }, ...data }
 )
 
+const requestSeats = (app: Application, requiredData: RequiredData, data?: Partial<RequestData>): Promise<Response> => continueRequest(
+  app,
+  requiredData,
+  { fields: { seats_required: 2 }, ...data }
+)
+
+const captureSeats = (app: Application, requiredData: RequiredData, data?: Partial<RequestData>): Promise<Response> => continueRequest(
+  app,
+  requiredData,
+  { fields: { seats_required: 2 }, ...data }
+)
+
 const signLegalAgreement = (app: Application, requiredData: RequiredData, data?: Partial<RequestData>): Promise<Response> => continueRequest(
   app,
   requiredData,
@@ -44,5 +56,7 @@ export default {
   initSessionWithPassport,
   continue: continueRequest,
   fillPassport,
+  requestSeats,
+  captureSeats,
   signLegalAgreement
 }

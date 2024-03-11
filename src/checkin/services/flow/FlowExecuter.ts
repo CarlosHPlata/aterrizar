@@ -1,7 +1,6 @@
 import { Context } from '../../model/Context'
 import StepTemplate from './StepTemplate'
 
-// Using chain of responsability
 export default class FlowExecuter {
 
   protected readonly steps: StepTemplate[] = []

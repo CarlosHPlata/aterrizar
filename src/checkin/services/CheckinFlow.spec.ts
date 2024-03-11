@@ -22,6 +22,8 @@ describe('[ Services / CheckInFlow ]', () => {
     const expectedSteps = [
       'ValidateSessionStep',
       'PassportInformationStep',
+      'RequestSeatsStep',
+      'CaptureSeatsStep',
       'AgreementSignStep',
       'CompleteCheckinStep'
     ]
@@ -29,8 +31,8 @@ describe('[ Services / CheckInFlow ]', () => {
     jest.spyOn(flowExecuterMock, 'and')
 
     await checkinFlow.checkIn(flowExecuterMock, requestData)
-
-    expect(flowExecuterMock.and).toHaveBeenCalledTimes(4)
+    const expectedNumberOfAddedSteps = expectedSteps.length
+    expect(flowExecuterMock.and).toHaveBeenCalledTimes(expectedNumberOfAddedSteps)
     expect(flowExecuterMock.getStepsExecution()).toEqual(expectedSteps)
   })
 })

@@ -34,6 +34,16 @@ const MOCK_SESSION: Session = {
         }
       }
     ],
+    seats: [
+      {
+        seatNumber: '1',
+        flight: 'ABC123'
+      },
+      {
+        seatNumber: '1',
+        flight: 'XYZ456'
+      }
+    ],
     passengers: 1
   },
   userInformation: {
@@ -62,6 +72,7 @@ const fillSessionWithUserMockData = (mockedData: Partial<Session>, builder: IBui
       .agreementSigned(mockedData.data.agreementSigned ?? false)
       .country(mockedData.data.country ?? MOCK_SESSION.data.country)
       .flights(mockedData.data.flights ?? MOCK_SESSION.data.flights)
+      .seats(mockedData.data.seats ?? MOCK_SESSION.data.seats)
       .build()
 
     builder = builder.data(data)

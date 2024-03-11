@@ -29,6 +29,7 @@ const generateRequestDataMock = (mockedData?: Partial<RequestData>): RequestData
       .userId(mockedData.userId ?? MOCKED_REQUEST_DATA.userId)
       .flightNumbers(mockedData.flightNumbers ?? MOCKED_REQUEST_DATA.flightNumbers)
       .fields(mockedData.fields ?? MOCKED_REQUEST_DATA.fields)
+      .seat(mockedData.seat ?? MOCKED_REQUEST_DATA.seat)
   }
 
   return builder.build()

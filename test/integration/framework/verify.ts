@@ -8,6 +8,13 @@ const requiredField = (requiredFiled: RequiredField, response: Response): void =
   expect(response.body.requiredFiles[requiredFiled]).toBeDefined()
 }
 
+const requiredSeatsAssignation = (requiredFiled: RequiredField, response: Response): void => {
+  expect(response.headers['content-type']).toEqual(expect.stringContaining('json'))
+  expect(response.body.status).toBe('seats_assignation_required')
+  expect(response.body.requiredFiles).toBeDefined()
+  expect(response.body.requiredFiles[requiredFiled]).toBeDefined()
+}
+
 const completed = (response: Response): void => {
   expect(response.headers['content-type']).toEqual(expect.stringContaining('json'))
   expect(response.body.status).toBe('completed')
@@ -20,7 +27,8 @@ const rejected = (response: Response): void => {
 
 export default {
   userInformation: {
-    requiredField
+    requiredField,
+    requiredSeatsAssignation
   },
   status: {
     rejected,
