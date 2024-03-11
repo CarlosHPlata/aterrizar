@@ -9,6 +9,7 @@ interface RequiredData { sessionId: UUID, country: CountryCode }
 
 const initSession = async (app: Application, country: CountryCode, data?: Partial<RequestData>): Promise<UUID> => {
   const requestData = generateRequestDataMock({ country, sessionId: (null) as unknown as UUID, ...data })
+
   const initResponse = await request(app).post('/init').send(requestData)
   const { sessionId } = initResponse.body
 
@@ -19,6 +20,8 @@ const initSession = async (app: Application, country: CountryCode, data?: Partia
 }
 
 const initSessionWithPassport = (app: Application, country: CountryCode): Promise<UUID> => initSession(app, country, { fields: { passport_number: 'G123' } })
+
+const initSessionWithPassportAndExtraPassengers = (app: Application, country: CountryCode): Promise<UUID> => initSession(app, country, { passengers: 3, fields: { passport_number: 'G123' } })
 
 const continueRequest = async (app: Application, requiredData: RequiredData, data?: Partial<RequestData>): Promise<Response> => {
   const { sessionId, country } = requiredData
@@ -42,6 +45,7 @@ const signLegalAgreement = (app: Application, requiredData: RequiredData, data?:
 export default {
   initSession,
   initSessionWithPassport,
+  initSessionWithPassportAndExtraPassengers,
   continue: continueRequest,
   fillPassport,
   signLegalAgreement
