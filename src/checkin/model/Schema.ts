@@ -2,6 +2,7 @@ export type RequiredField =
   | 'passport_number'
   | 'passenger_names'
   | 'agreement_required'
+  | 'extra_passenger_information'
 
 export type CountryCode =
   | 'AF'

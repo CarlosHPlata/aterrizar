@@ -22,6 +22,7 @@ describe('[ Services / CheckInFlow ]', () => {
     const expectedSteps = [
       'ValidateSessionStep',
       'PassportInformationStep',
+      'GetExtraPassengerInformationStep',
       'AgreementSignStep',
       'CompleteCheckinStep'
     ]
@@ -30,7 +31,7 @@ describe('[ Services / CheckInFlow ]', () => {
 
     await checkinFlow.checkIn(flowExecuterMock, requestData)
 
-    expect(flowExecuterMock.and).toHaveBeenCalledTimes(4)
+    expect(flowExecuterMock.and).toHaveBeenCalledTimes(5)
     expect(flowExecuterMock.getStepsExecution()).toEqual(expectedSteps)
   })
 })
