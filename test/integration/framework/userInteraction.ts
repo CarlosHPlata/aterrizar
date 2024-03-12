@@ -20,6 +20,8 @@ const initSession = async (app: Application, country: CountryCode, data?: Partia
 
 const initSessionWithPassport = (app: Application, country: CountryCode): Promise<UUID> => initSession(app, country, { fields: { passport_number: 'G123' } })
 
+const initSessionWithVisa = (app: Application, country: CountryCode): Promise<UUID> => initSession(app, country, { fields: { passport_number: 'G123', visa_number: 'V123' } })
+
 const continueRequest = async (app: Application, requiredData: RequiredData, data?: Partial<RequestData>): Promise<Response> => {
   const { sessionId, country } = requiredData
 
@@ -42,6 +44,7 @@ const signLegalAgreement = (app: Application, requiredData: RequiredData, data?:
 export default {
   initSession,
   initSessionWithPassport,
+  initSessionWithVisa,
   continue: continueRequest,
   fillPassport,
   signLegalAgreement

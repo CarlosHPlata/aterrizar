@@ -1,5 +1,6 @@
 export type RequiredField =
   | 'passport_number'
+  | 'visa_number'
   | 'passenger_names'
   | 'agreement_required'
 
